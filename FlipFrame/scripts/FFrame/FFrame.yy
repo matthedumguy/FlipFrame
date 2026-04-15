@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"FFrame",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"FFrame",
+  "parent":{
+    "name":"FlipFrame",
+    "path":"folders/FlipFrame.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

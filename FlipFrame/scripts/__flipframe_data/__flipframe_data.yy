@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__flipframe_data",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__flipframe_data",
+  "parent":{
+    "name":"Internal",
+    "path":"folders/FlipFrame/Internal.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
