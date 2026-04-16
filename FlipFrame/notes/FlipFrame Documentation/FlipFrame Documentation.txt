@@ -1,0 +1,12 @@
+FlipFrame Early Beta
+
+FlipFrame is a custom coded animator system aimed for easy interface and open modability that works by creating a FlipFrame struct and animating it, quick example:
+
+// Create Event
+spriteIndex = flipframe_create(<sprite>, <AnimTypeEnum>)
+
+// Step (or Other) Event
+spriteIndex.animate(<sprite>, <AnimTypeEnum>)
+
+// Draw Event
+flipframe(<xAxis>, <yAxis>, <sprite>)

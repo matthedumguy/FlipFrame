@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"flipframe_INIT",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"flipframe_INIT",
+  "parent":{
+    "name":"Initializer",
+    "path":"folders/FlipFrame/Initializer.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

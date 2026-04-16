@@ -1,27 +1,3 @@
-//Testing an animation system made by me(MatTheDumGuy)
-
-#macro FLIPFRAME_PIXELTOFRAMES 2.5
-#macro FLIPFRAME_DEBUG false
-#macro FLIPFRAME_INTERNAL_TOKEN "ÑÇ¡"
-
-enum FLIPFRAME_ANIMTYPE
-{
-	LOOP = 0,
-	ONESHOT,
-	FRAMELOOPED,
-	TRANSITIONTO
-}
-
-function flipframe(sprite_index, x, y)
-{
-	__flipframe_animated_system(sprite_index, x, y, 1, 1, 0, c_white, 1);
-}
-
-function flipframe_ext(sprite_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha)
-{
-	__flipframe_animated_system(sprite_index, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha) 
-}
-
 function __flipframe_animated_system()
 {
 	var _sprstruct = argument[0]._struct
@@ -102,39 +78,4 @@ function __flipframe_animated_system()
     }
 	cur_frame = _sprstruct.animcurframe
     draw_sprite_ext(_spr, floor(cur_frame), argument[1], argument[2], argument[3], argument[4], argument[5], argument[6], argument[7]);
-}
-
-function flipframe_init(argument0, argument1, argument2 = noone, argument3 = noone)
-{
-	return new __flipframe_data(argument0, argument1, argument2, argument3, FLIPFRAME_INTERNAL_TOKEN)	
-}
-
-function flipframe_log()
-{
-	var _message = "FlipFrame Debug Log: "
-	
-	for (var i = 0; i < argument_count; i++)
-		_message += string(argument[i])
-
-	return show_debug_message(_message)
-}
-
-function flipframe_throw()
-{
-	var _error = "FlipFrame : "
-	
-	for (var i = 0; i < argument_count; i++)
-		_error += string(argument[i])
-
-	clipboard_set_text(_error)
-	game_end()
-	show_message(_error)
-}
-
-function flipframe_id_creator()
-{
-	static _flipframe_id = 1000000;
-	
-	return _flipframe_id++
-	
 }

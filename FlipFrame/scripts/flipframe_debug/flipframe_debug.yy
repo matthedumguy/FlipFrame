@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"FFrame",
+  "%Name":"flipframe_debug",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"FFrame",
+  "name":"flipframe_debug",
   "parent":{
-    "name":"FlipFrame",
-    "path":"folders/FlipFrame.yy",
+    "name":"Debug",
+    "path":"folders/FlipFrame/Debug.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
