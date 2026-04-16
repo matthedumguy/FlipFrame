@@ -10,11 +10,11 @@
   },
   "defaultScriptType":1,
   "Folders":[
+    {"$GMFolder":"","%Name":"Documentation","folderPath":"folders/Documentation.yy","name":"Documentation","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"FlipFrame","folderPath":"folders/FlipFrame.yy","name":"FlipFrame","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Debug","folderPath":"folders/FlipFrame/Debug.yy","name":"Debug","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Initializer","folderPath":"folders/FlipFrame/Initializer.yy","name":"Initializer","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Internal (Do not call directly!!)","folderPath":"folders/FlipFrame/Internal (Do not call directly!!).yy","name":"Internal (Do not call directly!!)","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Documentation","folderPath":"folders/Documentation.yy","name":"Documentation","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[],
