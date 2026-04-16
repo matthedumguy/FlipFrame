@@ -9,4 +9,4 @@ spriteIndex = flipframe_create(<sprite>, <AnimTypeEnum>)
 spriteIndex.animate(<sprite>, <AnimTypeEnum>)
 
 // Draw Event
-flipframe(<xAxis>, <yAxis>, <sprite>)
+flipframe(<sprite>, <xAxis>, <yAxis>)
