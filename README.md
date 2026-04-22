@@ -9,5 +9,4 @@ Todo List
 <ul>
   <li>Make Delta Time Compatibility</li>
   <li>Allow Speed Curves</li>
-  <li>Ping Pong Animation Type</li>
 </ul>

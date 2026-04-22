@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"flipframe_get_speed",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"flipframe_get_speed",
+  "parent":{
+    "name":"FlipFrame",
+    "path":"folders/FlipFrame.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

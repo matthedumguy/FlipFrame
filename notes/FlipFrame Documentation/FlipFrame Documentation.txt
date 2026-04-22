@@ -3,10 +3,23 @@ FlipFrame Early Beta
 FlipFrame is a custom coded animator system aimed for easy interface and open modability that works by creating a FlipFrame struct and animating it, quick example:
 
 // Create Event
-spriteIndex = flipframe_create(<sprite>, <AnimTypeEnum>)
+spriteIndex = flipframe_flick(<sprite>)
 
-// Step (or Other) Event
+// Animating a sprite
 spriteIndex.animate(<sprite>, <AnimTypeEnum>)
 
 // Draw Event
-flipframe(<sprite>, <xAxis>, <yAxis>)
+flipframe(spriteIndex, <xAxis>, <yAxis>)
+
+But what if you want to use spritesheets? Here's how you can do it!
+// Initialization Code
+spr_rock_talk = flipframe_sprite_importer(<FileName eg: working_directory + "/sprites/rock_talk.png" >)
+
+To make sure your sprite gets imported correctly, make a file with the same name but the format as '.ini' here's how the files supposed to look:
+"
+[FFrameInfo]
+xOrigin=0
+yOrigin=0
+frameCount=1
+"
+Change 'frameCount' to the actual number of frames in the spritesheet

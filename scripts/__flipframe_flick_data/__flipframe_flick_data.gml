@@ -1,37 +1,23 @@
-function __flipframe_data(argument0, argument1, argument2, argument3) constructor
+function __flipframe_flick_data(argument0) constructor
 {
 	
 	_struct =  {
 		animsprite: asset_get_index(argument0),
 		animcurframe: 0,
 		animfinished: false,
-		animtype: argument1,
+		animtype: FLIPFRAME_ANIMTYPE.LOOP,
 		animloopstart: undefined,
 		animloopend: undefined,
 		animtoloop: undefined,
 		animcallbackframe: [0],
 		animcallback: [function(){}],
 		animcalledback: [true],
-		animspeed: undefined,
-		animpxtoframes: FLIPFRAME_PIXELTOFRAMES,
+		animspeed: flipframe_get_speed(asset_get_index(argument0)),
 		animxscale: 1,
 		animyscale: 1,
+		animreversed: false,
 		animuniqueid: flipframe_id_creator(),
 	}
-	
-	if (argument1 == FLIPFRAME_ANIMTYPE.ONESHOT && argument2 != noone)
-	{
-		array_push(_struct.animcallbackframe, sprite_get_number(_struct.animsprite))
-		array_push(_struct.animcalledback, false)
-		array_push(_struct.animcallback, argument2)
-	}
-	if (argument1 == FLIPFRAME_ANIMTYPE.FRAMELOOPED)
-	{
-		_struct.animloopstart = argument2
-		_struct.animloopend = argument3
-	}
-	if (argument1 == FLIPFRAME_ANIMTYPE.TRANSITIONTO)
-		_struct.animtoloop = argument2
 	
 	/// @param {Asset.GMSprite | string} sprite Sprite (or string) to animate
 	/// @param {Enum.FLIPFRAME_ANIMTYPE} animation-type The animation type (LOOP, ONESHOT, FRAMELOOPED, TRANSITIONTO)
@@ -40,24 +26,24 @@ function __flipframe_data(argument0, argument1, argument2, argument3) constructo
 	static animate = function(argument0, argument1, argument2 = noone, argument3 = noone)
 	{
 		var isToloop = ((_struct.animtoloop != argument2 || _struct.animsprite != _struct.animtoloop) && _struct.animtoloop != FLIPFRAME_ANIMTYPE.TRANSITIONTO)
-		var notPlaying = _struct.animsprite != argument0 && isToloop
+		var notPlaying = _struct.animsprite != argument0 && _struct.animtype != argument1 && isToloop
 	
 		if (notPlaying)
 		{
-			_struct.animsprite = asset_get_index(argument0)
-			_struct.animcurframe = 0
-			_struct.animfinished = false
-			_struct.animtype = argument1
-			_struct.animloopstart = undefined
-			_struct.animloopend = undefined
-			_struct.animtoloop = undefined
-			_struct.animcallbackframe = [0]
-			_struct.animcallback = [function(){}]
-			_struct.animcalledback = [true]
-			_struct.animspeed = undefined
-			_struct.animpxtoframes = FLIPFRAME_PIXELTOFRAMES
-			_struct.animxscale = 1
-			_struct.animyscale = 1
+			_struct.animsprite = asset_get_index(argument0);
+			_struct.animcurframe = 0;
+			_struct.animfinished = false;
+			_struct.animtype = argument1;
+			_struct.animloopstart = undefined;
+			_struct.animloopend = undefined;
+			_struct.animtoloop = undefined;
+			_struct.animcallbackframe = [0];
+			_struct.animcallback = [function(){}];
+			_struct.animcalledback = [true];
+			_struct.animspeed = undefined;
+			_struct.animreversed = false;
+			_struct.animxscale = 1;
+			_struct.animyscale = 1;
 
 	
 			if (argument1 == FLIPFRAME_ANIMTYPE.ONESHOT && argument2 != noone)
@@ -68,27 +54,38 @@ function __flipframe_data(argument0, argument1, argument2, argument3) constructo
 			}
 			if (argument1 == FLIPFRAME_ANIMTYPE.FRAMELOOPED)
 			{
-				_struct.animloopstart = argument2
-				_struct.animloopend = argument3
+				_struct.animloopstart = argument2;
+				_struct.animloopend = argument3;
 			}
 			if (argument1 == FLIPFRAME_ANIMTYPE.TRANSITIONTO)
-				_struct.animtoloop = argument2
+				_struct.animtoloop = argument2;
 		}
+		
+		static transition_into = function(argument0)
+		{
+			_struct.animtoloop = argument0
+		}
+		
+		static framing_loop = function(_start, _end)
+		{
+			_struct.animloopstart = _start
+			_struct.animloopend = _end
+		}
+		
 	}
 	
 	/// @param animation_speed The speed to set
 	/// @param pixels_to_speed Pixels to speed ratio 
-	/// @param [delta_time] Delta time toggle in animation speed
+	/// @param [delta_time] Delta time toggle in animation speed (Currently Unused)
 	/// @return {real}
-	static animation_speed = function(argument0 = -555, argument1 = FLIPFRAME_PIXELTOFRAMES, argument2 = false)
+	static animation_speed = function(argument0, argument1 = FLIPFRAME_PIXELTOFRAMES)
 	{
-		_struct.animspeed = (argument0 == -555) ? undefined : argument0
-		_struct.animpxtoframes = argument1
+		_struct.animspeed = abs(argument0) / (abs(argument0) * argument1) 
 	}
 	
 	static starting_frame = function(argument0)
 	{
-		_struct.animcurframe = argument0
+		_struct.animcurframe = argument0;
 	}
 	
 	static frame_callback = function(argument0, argument1)
@@ -117,7 +114,7 @@ function __flipframe_data(argument0, argument1, argument2, argument3) constructo
 	{
 		return _struct.animsprite
 	}
-	
+	/// @returns {Asset.GMSprite}
 	static get_subimage = function()
 	{
 		return _struct.animcurframe
@@ -127,4 +124,6 @@ function __flipframe_data(argument0, argument1, argument2, argument3) constructo
 	{
 		return sprite_get_number(_struct.animsprite) - 1
 	}
+	
+	animate(argument0, FLIPFRAME_ANIMTYPE.LOOP)
 }

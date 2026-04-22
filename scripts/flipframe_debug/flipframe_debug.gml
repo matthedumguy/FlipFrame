@@ -1,6 +1,6 @@
 function flipframe_log()
 {
-	var _message = "FlipFrame {0} Debug Log: "
+	var _message = "FlipFrame " + FLIPFRAME_VERSION + " Debug Log: "
 	
 	for (var i = 0; i < argument_count; i++)
 		_message += string(argument[i])
@@ -10,10 +10,10 @@ function flipframe_log()
 
 function flipframe_throw()
 {
-	var _error = "FlipFrame {0} : "
+	var _error = "FlipFrame " + FLIPFRAME_VERSION + " : "
 	
 	for (var i = 0; i < argument_count; i++)
-		_error += string(argument[i], FLIPFRAME_VERSION)
+		_error += string(argument[i])
 
 	clipboard_set_text(_error)
 	game_end()
@@ -22,7 +22,7 @@ function flipframe_throw()
 
 function flipframe_id_creator()
 {
-	static _flipframe_id = 1000000;
+	static _flipframe_id = 1000001;
 	
 	return _flipframe_id++
 	
