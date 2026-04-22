@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"FlipFrame",
+  "%Name":"flipframe",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"FlipFrame",
+  "name":"flipframe",
   "parent":{
     "name":"FlipFrame",
     "path":"folders/FlipFrame.yy",

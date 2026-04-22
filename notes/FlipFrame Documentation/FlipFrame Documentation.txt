@@ -1,21 +1,43 @@
 FlipFrame Early Beta
 
-FlipFrame is a custom coded animator system aimed for easy interface and open modability that works by creating a FlipFrame struct and animating it, quick example:
+FlipFrame is an animating system with better playback control for sprites that works by creating a Sprite struct and animating it, quick example:
 
-// Create Event
-spriteIndex = flipframe_flick(<sprite>)
+	// Create Event
+	spriteIndex = flipframe_flick(<sprite>) // 'flipframe_flick()' creates a sprite struct containing sprite info such 
 
-// Animating a sprite
-spriteIndex.animate(<sprite>, <AnimTypeEnum>)
+	// Animating a sprite (Not necessarily the Step event)
+	spriteIndex.animate(<sprite>, <AnimTypeEnum>) // 'animate()' updates the info of the sprite struct (Not an "update each step" function)
 
-// Draw Event
-flipframe(spriteIndex, <xAxis>, <yAxis>)
+	// Draw Event
+	flipframe(spriteIndex, <xAxis>, <yAxis>) // Then 'flipframe()' draws the current sprite
 
-But what if you want to use spritesheets? Here's how you can do it!
-// Initialization Code
-spr_rock_talk = flipframe_sprite_importer(<FileName eg: working_directory + "/sprites/rock_talk.png" >)
+Within the sprite struct there are other helpful functions:
 
-To make sure your sprite gets imported correctly, make a file with the same name but the format as '.ini' here's how the files supposed to look:
+	.flip(<frame>) // Flips to a desired frame
+
+	.animation_speed(<speed>, <PixelToFramesRatio>, <deltaTimeToggle(Currently Unused)>)
+
+	.sync_with(<otherSpriteStruct>) // Syncs the frame and speed of another sprite struct
+
+	.frame_callback(<frame>, <callBack>)
+
+	.on_started(<callBack>)
+
+	.on_finished(<callBack>)
+	
+'flipframe()' Also has useful functions:
+
+	.fog(<colour>)
+
+	.outline(<colour>, <size>)
+
+
+What if you want to use external spritesheets instead? Here's how to properly import them
+
+	// Initialization Code
+	spr_rock_talk = flipframe_sprite_importer(<FileName eg: working_directory + "/sprites/rock_talk.png" >)
+
+To make sure your sprite gets imported correctly, make a file with the same name but the format as '.ffilm' here's an example of how it's supposed to look!:
 "
 [FFrameInfo]
 xOrigin=0

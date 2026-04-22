@@ -1,2 +1,2 @@
 SCsprite = spr_PierreRun
-SCanimtype = FLIPFRAME_ANIMTYPE.PINGPONG
+SCanimtype = FLIPFRAME_ANIMTYPE.LOOP

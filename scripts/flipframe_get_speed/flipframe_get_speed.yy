@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"flipframe_get_speed",
   "parent":{
-    "name":"FlipFrame",
-    "path":"folders/FlipFrame.yy",
+    "name":"Misc",
+    "path":"folders/FlipFrame/Misc.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

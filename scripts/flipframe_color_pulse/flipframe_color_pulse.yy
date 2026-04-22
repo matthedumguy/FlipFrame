@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"flipframe_sprite_importer",
+  "%Name":"flipframe_color_pulse",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"flipframe_sprite_importer",
+  "name":"flipframe_color_pulse",
   "parent":{
     "name":"Misc",
     "path":"folders/FlipFrame/Misc.yy",

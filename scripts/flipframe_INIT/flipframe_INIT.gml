@@ -1,7 +1,9 @@
 #macro FLIPFRAME_PIXELTOFRAMES 2.5
 #macro FLIPFRAME_VERSION "Early-Beta"
 #macro FLIPFRAME_DEBUG false
-#macro FLIPFRAME_FILE_FORMAT ".ffile"
+#macro FLIPFRAME_FILE_FORMAT ".ffilm"
+#macro c_pulse flipframe_color_pulse()
+
 
 enum FLIPFRAME_ANIMTYPE
 {

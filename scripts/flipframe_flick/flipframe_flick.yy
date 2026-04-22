@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"flipframe_sprite_importer",
+  "%Name":"flipframe_flick",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"flipframe_sprite_importer",
+  "name":"flipframe_flick",
   "parent":{
-    "name":"Misc",
-    "path":"folders/FlipFrame/Misc.yy",
+    "name":"FlipFrame",
+    "path":"folders/FlipFrame.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

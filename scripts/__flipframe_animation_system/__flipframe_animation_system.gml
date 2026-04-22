@@ -1,6 +1,6 @@
-function __flipframe_animation_system()
+function __flipframe_animation_system(argument0,  argument1, argument2, argument3, argument4, argument5, argument6, argument7) constructor
 {
-	var _sprstruct = argument[0]._struct
+	var _sprstruct = argument0._struct
 	
 	if (!is_struct(_sprstruct))
 		flipframe_throw("argument0 in the FlipFrame draw function is not a FlipFrame struct but is ", _sprstruct)
@@ -91,5 +91,28 @@ function __flipframe_animation_system()
 	}
 	
 	cur_frame = _sprstruct.animcurframe;
-    draw_sprite_ext(_spr, floor(cur_frame), argument[1], argument[2], argument[3], argument[4], argument[5], argument[6], argument[7]);
+	
+	_draw_system = new __flipframe_drawing_system(_spr, floor(cur_frame), argument1, argument2, argument3, argument4, argument5, argument6, argument7);
+	
+	static gradient_triple = function(_c1, _c2, _c3)
+	{
+		_draw_system._Gradient3(_c1, _c2, _c3)
+	}
+	
+	static gradient = function(_c1, _c2, _c3, _c4)
+	{
+		_draw_system._Gradient4(_c1, _c2, _c3, _c4)
+	}
+	
+	static outline = function(_colour, _size)
+	{
+		_draw_system._SmoothOutline(_colour, _size)
+	}
+	
+	static fog = function(_colour)
+	{
+		_draw_system._Fog(_colour)
+	}
+	
+	_draw_system._Draw()
 }

@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"flipframe_sprite_importer",
+  "%Name":"flipframe_id_creator",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"flipframe_sprite_importer",
+  "name":"flipframe_id_creator",
   "parent":{
     "name":"Misc",
     "path":"folders/FlipFrame/Misc.yy",

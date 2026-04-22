@@ -1,7 +1,10 @@
-<p align="center"><img width="370" height="320" alt="image" src="https://github.com/user-attachments/assets/5feb27f2-68c0-4a9d-b6b6-93ed27a6544a" /></p>
+<p align="center"><img width="500" alt="image" src="https://github.com/user-attachments/assets/c93c9bdf-6fa0-40c3-bfe4-b16868b80411" />
+</p>
+
+<h1></h1>
 
 <p align="center">FlipFrame Early Beta</p>
-<p align="center">FlipFrame is a custom built animating system aimed for easy interface and open modability</p>
+<p align="center">FlipFrame is an animating system with better playback control for sprites</p>
 
 <center><h1>Warning this is not final, subject to change</h1></center>
 
