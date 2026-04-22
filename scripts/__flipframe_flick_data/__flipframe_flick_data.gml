@@ -118,7 +118,7 @@ function __flipframe_flick_data(argument0) constructor
 	/// @returns {Asset.GMSprite}
 	static get_subimage = function()
 	{
-		return _struct.animcurframe;
+		return floor(_struct.animcurframe);
 	}
 	
 	static get_number = function()

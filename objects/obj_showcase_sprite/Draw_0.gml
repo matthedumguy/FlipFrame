@@ -1,11 +1,7 @@
 var _ff = flipframe(showcaseSprite, x, y, image_xscale, image_yscale, 0, c_white, 1)
-_ff.outline(c_pulse, 5)
+_ff.outline(c_pulse, 2.5)
 draw_set_font(fnt_cosmicsans)
-for (var i = -2; i <= 2; i++) 
-{
-	for (var j = -2; j <= 2; j++) 
-	{
-		draw_text_colour(x + i, (y - 200) + j, "AnimationType: ", c_black, c_black, c_black, c_black, 1)
-	}
-}
-draw_text(x, y - 200, "AnimationType: ")
+draw_set_halign(fa_center)
+drawTextOutlined(x, y - 200, "Animation Type : " + stringifyAnimtype(Example.SCanimtype))
+draw_set_halign(fa_right)
+drawTextOutlined(x + 500, y - 200, "Current frame : " + string(showcaseSprite.get_subimage()))

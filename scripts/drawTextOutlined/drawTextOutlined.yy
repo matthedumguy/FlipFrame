@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"drawTextOutlined",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"drawTextOutlined",
+  "parent":{
+    "name":"Misc",
+    "path":"folders/FlipFrame/Misc.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

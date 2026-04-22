@@ -24,7 +24,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.4.222",
+    "IDEVersion":"2024.14.3.217",
   },
   "name":"FlipFrame",
   "resources":[
@@ -38,6 +38,7 @@
     {"id":{"name":"__flipframe_drawing_system","path":"scripts/__flipframe_drawing_system/__flipframe_drawing_system.yy",},},
     {"id":{"name":"__flipframe_flick_data","path":"scripts/__flipframe_flick_data/__flipframe_flick_data.yy",},},
     {"id":{"name":"__flipframe_struct","path":"scripts/__flipframe_struct/__flipframe_struct.yy",},},
+    {"id":{"name":"drawTextOutlined","path":"scripts/drawTextOutlined/drawTextOutlined.yy",},},
     {"id":{"name":"flipframe_color_pulse","path":"scripts/flipframe_color_pulse/flipframe_color_pulse.yy",},},
     {"id":{"name":"flipframe_debug","path":"scripts/flipframe_debug/flipframe_debug.yy",},},
     {"id":{"name":"flipframe_flick","path":"scripts/flipframe_flick/flipframe_flick.yy",},},

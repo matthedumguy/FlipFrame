@@ -1,0 +1,1 @@
+drawTextOutlined(DisplayW * 0.46, DisplayH * 0.75, "'A' and 'D' to scroll through animation types \n 'R' resets the animation\n 'S' opens a window to set the animation speed")

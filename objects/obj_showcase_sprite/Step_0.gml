@@ -1,0 +1,1 @@
+showcaseSprite.animate(Example.SCsprite, Example.SCanimtype)
