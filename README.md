@@ -10,6 +10,13 @@
   </a>
 </p>
 
+<p align="center">
+  <a href="https://raw.githubusercontent.com/matthedumguy/FlipFrame/refs/heads/main/notes/FlipFrame%20Documentation/FlipFrame%20Documentation.txt?token=GHSAT0AAAAAAD3DHOCD47VOTM6URMBWI6NU2PKNJOQ">
+    Check out the documentation
+  </a>
+  (Open this in a new tab if needed)
+</p>
+
 <p align="center""><strong>Warning this is not final, subject to change</strong></p>
 
 Todo list
