@@ -10,7 +10,7 @@
   </a>
 </p>
 <p align="center">
-  <a href="https://github.com/matthedumguy/FlipFrame/blob/main/notes/FlipFrame%20Documentation/FlipFrame%20Documentation.txt">
+  <a href="https://raw.githubusercontent.com/matthedumguy/FlipFrame/refs/heads/main/notes/FlipFrame%20Documentation/FlipFrame%20Documentation.txt?token=GHSAT0AAAAAAD3DHOCCDHCEOABK4V3PZVRC2PKLXDQ" target="_blank">
     Read the documentation
   </a>
 </p>
