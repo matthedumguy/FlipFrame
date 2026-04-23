@@ -5,13 +5,14 @@ function __flipframe_flick_data(argument0) constructor
 		animsprite: asset_get_index(argument0),
 		animcurframe: 0,
 		animfinished: false,
+		animogsprite: asset_get_index(argument0),
 		animtype: FLIPFRAME_ANIMTYPE.LOOP,
 		animloopstart: undefined,
 		animloopend: undefined,
 		animtoloop: undefined,
-		animcallbackframe: [0],
-		animcallback: [function(){}],
-		animcalledback: [true],
+		animcallbackframe: [],
+		animcallback: [],
+		animcalledback: [],
 		animspeed: flipframe_get_speed(asset_get_index(argument0)),
 		animxscale: 1,
 		animyscale: 1,
@@ -35,41 +36,59 @@ function __flipframe_flick_data(argument0) constructor
 			_struct.animtype = argument1;
 			_struct.animcurframe = 0;
 			_struct.animfinished = false;
+			_struct.animogsprite = asset_get_index(argument0);
 			_struct.animloopstart = undefined;
 			_struct.animloopend = undefined;
 			_struct.animtoloop = undefined;
-			_struct.animcallbackframe = [0];
-			_struct.animcallback = [function(){}];
-			_struct.animcalledback = [true];
+			_struct.animcallbackframe = [];
+			_struct.animcallback = [];
+			_struct.animcalledback = [];
 			_struct.animspeed = flipframe_get_speed(asset_get_index(argument0));
 			_struct.animreversed = false;
 			_struct.animxscale = 1;
 			_struct.animyscale = 1;
 			_struct.animuniqueid = noone;
 
-	
-			if (argument1 == FLIPFRAME_ANIMTYPE.FRAMELOOPED)
+			switch (argument1)
 			{
+				case FLIPFRAME_ANIMTYPE.FRAMELOOPED:
 				_struct.animloopstart = argument2;
 				_struct.animloopend = argument3;
-			}
-			if (argument1 == FLIPFRAME_ANIMTYPE.TRANSITIONTO)
+				break;
+				
+				case FLIPFRAME_ANIMTYPE.TRANSITIONTO:
 				_struct.animtoloop = argument2;
+				break;
+			}
 		}
 	}
 	/// @param animation_speed The speed to set
 	/// @param pixels_to_speed Pixels to speed ratio 
 	/// @param [delta_time] Delta time toggle in animation speed (Currently Unused)
 	/// @return {real}
-	static animation_speed = function(argument0, argument1 = FLIPFRAME_PIXELTOFRAMES)
+	static animation_speed = function(argument0 = undefined, argument1 = FLIPFRAME_PIXELTOFRAMES)
 	{
-		_struct.animspeed = abs(argument0) / (abs(argument0) * argument1);
+		if (!is_undefined(argument0))
+			_struct.animspeed = abs(argument0) / (abs(argument0) * argument1);
+		else
+			_struct.animspeed = flipframe_get_speed(_struct.animsprite)
 	}
 	
 	/// @param frame
-	static flip = function(argument0)
+	static flip_to = function(argument0)
 	{
 		_struct.animcurframe = argument0;
+	}
+	
+	static start_over = function()
+	{
+		_struct.animcurframe = 0;
+		_struct.animreversed = false;
+		if (_struct.animsprite != _struct.animogsprite)
+		{
+			_struct.animsprite = _struct.animogsprite
+			_struct.animtype = FLIPFRAME_ANIMTYPE.TRANSITIONTO
+		}
 	}
 	
 	/// @param sprite-struct
@@ -85,29 +104,43 @@ function __flipframe_flick_data(argument0) constructor
 		}
 	}
 	
+	__callbackFrame = function(argument0, argument1)
+	{
+		var _i = array_length(_struct.animcallbackframe)
+		if (_i != 0)
+		{
+			var _prevcallback = _struct.animcallbackframe[_i - 1]
+			var _prevcallbackframe = _struct.animcallbackframe[_i - 1]
+			if (_prevcallbackframe != argument0 && _prevcallbackframe != argument1)
+			{
+				array_push(_struct.animcallbackframe, argument0);
+				array_push(_struct.animcallback, argument1);
+			}
+		}
+		else
+		{
+			array_push(_struct.animcallbackframe, argument0);
+			array_push(_struct.animcallback, argument1);
+		}
+	}
+	
 	/// @param frame
 	/// @param callback
 	static frame_callback = function(argument0, argument1)
 	{
-		array_push(_struct.animcallbackframe, argument0);
-		array_push(_struct.animcalledback, false);
-		array_push(_struct.animcallback, argument1);
+		__callbackFrame(argument0, argument1)
 	}
 	
 	/// @param callback
 	static on_started = function(argument0)
 	{
-		array_push(_struct.animcallbackframe, 0);
-		array_push(_struct.animcalledback, false);
-		array_push(_struct.animcallback, argument0);
+		__callbackFrame(0, argument0)
 	}
 	
 	/// @param callback
 	static on_finished = function(argument0)
 	{
-		array_push(_struct.animcallbackframe, sprite_get_number(_struct.animsprite));
-		array_push(_struct.animcalledback, false);
-		array_push(_struct.animcallback, argument0);
+		__callbackFrame(sprite_get_number(_struct.animsprite) - 1, argument0)
 	}
 	
 	/// @returns {Asset.GMSprite}

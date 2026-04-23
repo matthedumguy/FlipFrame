@@ -1,4 +1,4 @@
-/// @returns {Any}
+
 /// @param {Asset.GMSprite} sprite Sprite struct made using 'flipframe_flick()'
 /// @param {Real} x x position where to draw
 /// @param {Real} y y position where to draw

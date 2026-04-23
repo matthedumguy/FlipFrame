@@ -13,17 +13,19 @@ FlipFrame is an animating system with better playback control for sprites that w
 
 Within the sprite struct there are other helpful functions:
 
-	.flip(<frame>) // Flips to a desired frame
+	.flip_to(<frame>) // Flips to a desired frame
+	
+	.start_over() // Restarts the animation
 
-	.animation_speed(<speed>, <PixelToFramesRatio>, <deltaTimeToggle(Currently Unused)>)
+	.animation_speed(<speed>, <PixelToFramesRatio>, <deltaTimeToggle(Currently Unused)>) // Sets the animation speed
 
-	.sync_with(<otherSpriteStruct>) // Syncs the frame and speed of another sprite struct
+	.sync_with(<otherSpriteStruct>) // Syncs the frame or speed of another sprite struct
 
-	.frame_callback(<frame>, <callBack>)
+	.frame_callback(<frame>, <callBack>) // Sets a callback function in a desired frame
 
-	.on_started(<callBack>)
+	.on_started(<callBack>) // Sets a callback on starting the animation
 
-	.on_finished(<callBack>)
+	.on_finished(<callBack>) // Sets a callback on ending (or Looping) the animation
 	
 'flipframe()' Also has useful functions:
 
@@ -31,7 +33,10 @@ Within the sprite struct there are other helpful functions:
 
 	.outline(<colour>, <size>)
 
-
+	.gradient(<colour1>, <colour2>, <colour3>, <colour4>)
+	
+	.gradient(<colour1>, <colour2>, <colour3>)
+	
 What if you want to use external spritesheets instead? Here's how to properly import them
 
 	// Initialization Code

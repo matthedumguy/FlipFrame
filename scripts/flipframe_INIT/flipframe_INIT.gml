@@ -3,7 +3,7 @@
 #macro FLIPFRAME_DEBUG false
 #macro FLIPFRAME_FILE_FORMAT ".ffilm"
 #macro c_pulse flipframe_color_pulse()
-
+#macro c_wave flipframe_color_wave()
 
 enum FLIPFRAME_ANIMTYPE
 {

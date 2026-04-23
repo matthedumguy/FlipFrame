@@ -15,7 +15,7 @@ if (hor != 0)
 }
 
 if (_reset)
-	obj_showcase_sprite.showcaseSprite.flip(0)
+	obj_showcase_sprite.showcaseSprite.start_over()
 
 if (_speed)
-	get_string_async("Input the desired speed (Leave blank for default)", "Bruh")
+	speedId = get_string_async("Input the desired speed (Leave blank for default)", "")

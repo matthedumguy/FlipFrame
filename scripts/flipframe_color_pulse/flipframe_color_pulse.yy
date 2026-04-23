@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"flipframe_color_pulse",
   "parent":{
-    "name":"Misc",
-    "path":"folders/FlipFrame/Misc.yy",
+    "name":"Colour",
+    "path":"folders/FlipFrame/Colour.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

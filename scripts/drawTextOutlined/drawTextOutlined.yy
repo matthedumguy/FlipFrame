@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"drawTextOutlined",
   "parent":{
-    "name":"Misc",
-    "path":"folders/FlipFrame/Misc.yy",
+    "name":"Example",
+    "path":"folders/Example.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

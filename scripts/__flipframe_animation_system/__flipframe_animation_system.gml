@@ -1,4 +1,4 @@
-function __flipframe_animation_system(argument0,  argument1, argument2, argument3, argument4, argument5, argument6, argument7) constructor
+function __flipframe_animation_system(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7) constructor
 {
 	var _sprstruct = argument0._struct
 	
@@ -19,7 +19,7 @@ function __flipframe_animation_system(argument0,  argument1, argument2, argument
 	
 	var _animname = "__" + string(_uniqueid)
 	
-    var frames = sprite_get_number(_spr) - 1;
+    var frames = sprite_get_number(_spr);
 	var names = sprite_get_name(_spr);
     var speeds = sprite_get_speed(_spr);
     var speedtype = sprite_get_speed_type(_spr);
@@ -40,7 +40,7 @@ function __flipframe_animation_system(argument0,  argument1, argument2, argument
 		else
 		{
 			_sprstruct.animcurframe -= _animspeed;
-			if (_sprstruct.animcurframe <= frames)
+			if (_sprstruct.animcurframe <= 0)
 				_sprstruct.animreversed = false;
 		}
 	}
@@ -48,7 +48,7 @@ function __flipframe_animation_system(argument0,  argument1, argument2, argument
 	#region Animation types handling
 	if (_animtype == FLIPFRAME_ANIMTYPE.FRAMELOOPED)
 	{
-		if (_sprstruct.animcurframe >= _loopend)
+		if (_sprstruct.animcurframe > _loopend)
 			_sprstruct.animcurframe = _loopstart;
 	}
 			
@@ -56,15 +56,16 @@ function __flipframe_animation_system(argument0,  argument1, argument2, argument
 	{
 		if (_sprstruct.animcurframe >= frames)
 		{
-			_sprstruct.animcurframe = 0;
-			_sprstruct.animtype = 0;
+			_sprstruct.animcurframe = 1;
+			_sprstruct.animtype = FLIPFRAME_ANIMTYPE.LOOP;
 			_sprstruct.animsprite = _toloop;
 			_spr = _toloop;
-			frames = sprite_get_number(_spr) - 1;
+			frames = sprite_get_number(_spr);
+			_animtype = _sprstruct.animtype;
 		}
 	}
 	
-	if (_sprstruct.animcurframe >= frames && _animtype != FLIPFRAME_ANIMTYPE.FRAMELOOPED && _animtype != FLIPFRAME_ANIMTYPE.TRANSITIONTO)
+	if (_sprstruct.animcurframe >= frames && (_animtype != FLIPFRAME_ANIMTYPE.FRAMELOOPED && _animtype != FLIPFRAME_ANIMTYPE.TRANSITIONTO && _animtype != FLIPFRAME_ANIMTYPE.PINGPONG))
 	{
 		_sprstruct.animfinished = true;
 		if (_animtype == FLIPFRAME_ANIMTYPE.ONESHOT)
@@ -79,14 +80,13 @@ function __flipframe_animation_system(argument0,  argument1, argument2, argument
 	for (var i = 0; i < array_length(_callback); i++) 
 	{
 		var __callback = _callback[i];
-		var __calledback = _sprstruct.animcalledback[i];
 		var __callbackframe = _sprstruct.animcallbackframe[i];
 		
-		if (!__calledback && _sprstruct.animcurframe == __callbackframe)
+		if (_sprstruct.animcurframe == __callbackframe)
 		{
-			_sprstruct.animcalledback = true;
 			__callback()
 			flipframe_log("Callback activated : ", __callback, " for frame : ", __callbackframe);
+			array_delete(_sprstruct.animcallback, i, 1)
 		}
 	}
 	
