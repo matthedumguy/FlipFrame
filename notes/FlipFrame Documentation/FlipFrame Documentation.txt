@@ -6,18 +6,22 @@ FlipFrame is an animating system with better playback control for sprites that w
 	spriteIndex = flipframe_flick(<sprite>) // 'flipframe_flick()' creates a sprite struct containing sprite info such 
 
 	// Animating a sprite (Not necessarily the Step event)
-	spriteIndex.animate(<sprite>, <AnimTypeEnum>) // 'animate()' updates the info of the sprite struct (Not an "update each step" function)
+	spriteIndex.animate(<sprite>, <AnimTypeEnum>) // 'animate()' animates a sprite updating the info of the sprite struct (Not an "update each step" function)
 
 	// Draw Event
 	flipframe(spriteIndex, <xAxis>, <yAxis>) // Then 'flipframe()' draws the current sprite
 
-Within the sprite struct there are other helpful functions:
+Within the sprite struct there are other helpful functions
+
+Basics:
+
+	.animate(<sprite>, <AnimTypeEnum>, [<arg2>], [<loopEnd>]) // arg2 depends on the animation type chosen, if FRAMELOOPED its Loop start frame, if TRANSITIONTO then the sprite to transition into
 
 	.flip_to(<frame>) // Flips to a desired frame
 	
 	.start_over() // Restarts the animation
 
-	.animation_speed(<speed>, <PixelToFramesRatio>, <deltaTimeToggle(Currently Unused)>) // Sets the animation speed
+	.animation_speed(<speed>, <pixelToFramesRatio>, <deltaTimeToggle(Currently Unused)>) // Sets the animation speed, if <speed> is blank it sets the speed to the sprite's speed
 
 	.sync_with(<otherSpriteStruct>) // Syncs the frame or speed of another sprite struct
 
@@ -27,15 +31,25 @@ Within the sprite struct there are other helpful functions:
 
 	.on_finished(<callBack>) // Sets a callback on ending (or Looping) the animation
 	
+Getters: 
+
+	.get_sprite() // Returns the current sprite
+
+	.get_subimage() // Returns the current frame
+
+	.get_number() // Returns the number of frames
+
+	.get_info() // Returns sprite struct information
+	
 'flipframe()' Also has useful functions:
 
-	.fog(<colour>)
+	.fog(<colour>) // Colors a sprite a singular color
 
-	.outline(<colour>, <size>)
+	.outline(<colour>, <size>) // Draws an outline around the sprite
 
-	.gradient(<colour1>, <colour2>, <colour3>, <colour4>)
+	.gradient(<colour1>, <colour2>, <colour3>, <colour4>) // Draws the sprite in a gradient blend
 	
-	.gradient(<colour1>, <colour2>, <colour3>)
+	.gradient(<colour1>, <colour2>, <colour3>) // Draws the sprite in a gradient blend but with 3 colors
 	
 What if you want to use external spritesheets instead? Here's how to properly import them
 

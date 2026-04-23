@@ -1,7 +1,7 @@
 function __flipframe_flick_data(argument0) constructor
 {
 	
-	_struct =  {
+	__sprite_struct =  {
 		animsprite: asset_get_index(argument0),
 		animcurframe: 0,
 		animfinished: false,
@@ -12,7 +12,7 @@ function __flipframe_flick_data(argument0) constructor
 		animtoloop: undefined,
 		animcallbackframe: [],
 		animcallback: [],
-		animcalledback: [],
+		animcallbackon: [],
 		animspeed: flipframe_get_speed(asset_get_index(argument0)),
 		animxscale: 1,
 		animyscale: 1,
@@ -27,37 +27,37 @@ function __flipframe_flick_data(argument0) constructor
 	/// @param {real} loop-end FRAMELOOPED only: loop end frame
 	static animate = function(argument0, argument1, argument2 = noone, argument3 = noone)
 	{
-		var isToloop = ((_struct.animtoloop != argument2 || _struct.animsprite != _struct.animtoloop) && _struct.animtoloop != FLIPFRAME_ANIMTYPE.TRANSITIONTO)
-		var notPlaying = (_struct.animsprite != asset_get_index(argument0) || _struct.animtype != argument1) && isToloop
+		var isToloop = ((__sprite_struct.animtoloop != argument2 || __sprite_struct.animsprite != __sprite_struct.animtoloop) && __sprite_struct.animtype != FLIPFRAME_ANIMTYPE.TRANSITIONTO)
+		var notPlaying = (__sprite_struct.animsprite != asset_get_index(argument0) || __sprite_struct.animtype != argument1) && isToloop;
 		
 		if (notPlaying)
 		{
-			_struct.animsprite = asset_get_index(argument0);
-			_struct.animtype = argument1;
-			_struct.animcurframe = 0;
-			_struct.animfinished = false;
-			_struct.animogsprite = asset_get_index(argument0);
-			_struct.animloopstart = undefined;
-			_struct.animloopend = undefined;
-			_struct.animtoloop = undefined;
-			_struct.animcallbackframe = [];
-			_struct.animcallback = [];
-			_struct.animcalledback = [];
-			_struct.animspeed = flipframe_get_speed(asset_get_index(argument0));
-			_struct.animreversed = false;
-			_struct.animxscale = 1;
-			_struct.animyscale = 1;
-			_struct.animuniqueid = noone;
+			__sprite_struct.animsprite = asset_get_index(argument0);
+			__sprite_struct.animtype = argument1;
+			__sprite_struct.animcurframe = 0;
+			__sprite_struct.animfinished = false;
+			__sprite_struct.animogsprite = asset_get_index(argument0);
+			__sprite_struct.animloopstart = undefined;
+			__sprite_struct.animloopend = undefined;
+			__sprite_struct.animtoloop = undefined;
+			__sprite_struct.animcallbackframe = [];
+			__sprite_struct.animcallback = [];
+			__sprite_struct.animcallbackon = [];
+			__sprite_struct.animspeed = flipframe_get_speed(asset_get_index(argument0));
+			__sprite_struct.animreversed = false;
+			__sprite_struct.animxscale = 1;
+			__sprite_struct.animyscale = 1;
+			__sprite_struct.animuniqueid = noone;
 
 			switch (argument1)
 			{
 				case FLIPFRAME_ANIMTYPE.FRAMELOOPED:
-				_struct.animloopstart = argument2;
-				_struct.animloopend = argument3;
+				__sprite_struct.animloopstart = argument2;
+				__sprite_struct.animloopend = argument3;
 				break;
 				
 				case FLIPFRAME_ANIMTYPE.TRANSITIONTO:
-				_struct.animtoloop = argument2;
+				__sprite_struct.animtoloop = argument2;
 				break;
 			}
 		}
@@ -69,25 +69,25 @@ function __flipframe_flick_data(argument0) constructor
 	static animation_speed = function(argument0 = undefined, argument1 = FLIPFRAME_PIXELTOFRAMES)
 	{
 		if (!is_undefined(argument0))
-			_struct.animspeed = abs(argument0) / (abs(argument0) * argument1);
+			__sprite_struct.animspeed = abs(argument0) / argument1;
 		else
-			_struct.animspeed = flipframe_get_speed(_struct.animsprite)
+			__sprite_struct.animspeed = flipframe_get_speed(__sprite_struct.animsprite)
 	}
 	
 	/// @param frame
 	static flip_to = function(argument0)
 	{
-		_struct.animcurframe = argument0;
+		__sprite_struct.animcurframe = argument0;
 	}
 	
 	static start_over = function()
 	{
-		_struct.animcurframe = 0;
-		_struct.animreversed = false;
-		if (_struct.animsprite != _struct.animogsprite)
+		__sprite_struct.animcurframe = 0;
+		__sprite_struct.animreversed = false;
+		if (__sprite_struct.animsprite != __sprite_struct.animogsprite)
 		{
-			_struct.animsprite = _struct.animogsprite
-			_struct.animtype = FLIPFRAME_ANIMTYPE.TRANSITIONTO
+			__sprite_struct.animsprite = __sprite_struct.animogsprite
+			__sprite_struct.animtype = FLIPFRAME_ANIMTYPE.TRANSITIONTO
 		}
 	}
 	
@@ -96,31 +96,33 @@ function __flipframe_flick_data(argument0) constructor
 	{
 		var _otherstruct = argument0;
 		
-		if (_otherstruct.animuniqueid != _struct.animuniqueid)
+		if (_otherstruct.animuniqueid != __sprite_struct.animuniqueid)
 		{
-			_struct.animcurframe = _otherstruct.animcurframe;
-			_struct.animspeed = _otherstruct.animspeed;
-			_struct.animsyncwith = _otherstruct.animuniqueid;
+			__sprite_struct.animcurframe = _otherstruct.animcurframe;
+			__sprite_struct.animspeed = _otherstruct.animspeed;
+			__sprite_struct.animsyncwith = _otherstruct.animuniqueid;
 		}
 	}
 	
 	__callbackFrame = function(argument0, argument1)
 	{
-		var _i = array_length(_struct.animcallbackframe)
+		var _i = array_length(__sprite_struct.animcallbackframe)
 		if (_i != 0)
 		{
-			var _prevcallback = _struct.animcallbackframe[_i - 1]
-			var _prevcallbackframe = _struct.animcallbackframe[_i - 1]
-			if (_prevcallbackframe != argument0 && _prevcallbackframe != argument1)
+			var _prevcallback = __sprite_struct.animcallback[_i - 1]
+			var _prevcallbackframe = __sprite_struct.animcallbackframe[_i - 1]
+			if (_prevcallbackframe != argument0 && _prevcallback != argument1)
 			{
-				array_push(_struct.animcallbackframe, argument0);
-				array_push(_struct.animcallback, argument1);
+				array_push(__sprite_struct.animcallbackframe, argument0);
+				array_push(__sprite_struct.animcallback, argument1);
+				array_push(__sprite_struct.animcallbackon, 0);
 			}
 		}
 		else
 		{
-			array_push(_struct.animcallbackframe, argument0);
-			array_push(_struct.animcallback, argument1);
+			array_push(__sprite_struct.animcallbackframe, argument0);
+			array_push(__sprite_struct.animcallback, argument1);
+			array_push(__sprite_struct.animcallbackon, 0);
 		}
 	}
 	
@@ -140,23 +142,27 @@ function __flipframe_flick_data(argument0) constructor
 	/// @param callback
 	static on_finished = function(argument0)
 	{
-		__callbackFrame(sprite_get_number(_struct.animsprite) - 1, argument0)
+		__callbackFrame(sprite_get_number(__sprite_struct.animsprite) - 1, argument0)
 	}
 	
 	/// @returns {Asset.GMSprite}
 	static get_sprite = function()
 	{
-		return _struct.animsprite;
+		return __sprite_struct.animsprite;
 	}
 	/// @returns {Asset.GMSprite}
 	static get_subimage = function()
 	{
-		return floor(_struct.animcurframe);
+		return floor(__sprite_struct.animcurframe);
 	}
 	
 	static get_number = function()
 	{
-		return sprite_get_number(_struct.animsprite) - 1;
+		return sprite_get_number(__sprite_struct.animsprite) - 1;
 	}
 	
+	static get_info = function()
+	{
+		return __sprite_struct
+	}
 }

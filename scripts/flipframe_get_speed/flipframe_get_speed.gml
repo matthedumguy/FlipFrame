@@ -1,3 +1,5 @@
+/// @return {Real}
+/// @desc  Returns the default sprite speed
 function flipframe_get_speed(argument0)
 {
     var speeds = sprite_get_speed(argument0);

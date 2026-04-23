@@ -1,4 +1,3 @@
-
 function flipframe_sprite_importer(fname)
 {
 	var _fname = fname

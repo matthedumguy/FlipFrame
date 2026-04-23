@@ -2,9 +2,9 @@ showcaseSprite = flipframe_flick(Example.SCsprite)
 showcaseSprite.animate(Example.SCsprite, Example.SCanimtype)
 
 
-stringifyAnimtype = function(argument0)
+stringifyAnimtype = function(_animType)
 {
-	switch (argument0)
+	switch (_animType)
 	{
 		case FLIPFRAME_ANIMTYPE.LOOP:
 		return "Loop"

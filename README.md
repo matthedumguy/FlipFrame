@@ -4,10 +4,22 @@
 <h1><p align="center">FlipFrame Early Beta</p></h1>
 <p align="center">FlipFrame is an animating system with better playback control for sprites</p>
 
-<center><h1>Warning this is not final, subject to change</h1></center>
+<p align="center">
+  <a href="https://github.com/matthedumguy/FlipFrame/releases">
+    Download the .yymps
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/matthedumguy/FlipFrame/blob/main/notes/FlipFrame%20Documentation/FlipFrame%20Documentation.txt">
+    Read the documentation
+  </a>
+</p>
 
-Todo List
+<p align="center""><strong>Warning this is not final, subject to change</strong></p>
+
+Todo list
 <ul>
-  <li>Make Delta Time Compatibility</li>
-  <li>Allow Speed Curves</li>
+  <li>Fix Delta time compatibility</li>
+  <li>Allow Speed curves</li>
+  <li>Allow Sequence compatibility (Unlikely)</li>
 </ul>
