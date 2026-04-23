@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/matthedumguy/FlipFrame/refs/heads/main/notes/FlipFrame%20Documentation/FlipFrame%20Documentation.txt?token=GHSAT0AAAAAAD3DHOCD47VOTM6URMBWI6NU2PKNJOQ">
+  <a href="https://pastebin.com/raw/b29d0FQd">
     Check out the documentation
   </a>
   (Open this in a new tab if needed)
