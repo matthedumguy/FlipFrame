@@ -1,0 +1,23 @@
+{
+  "$GMAnimCurve":"",
+  "%Name":"AnimationCurve1",
+  "channels":[
+    {"$GMAnimCurveChannel":"","%Name":"image_index","colour":4290799884,"name":"image_index","points":[
+        {"th0":-0.1,"th1":0.1,"tv0":0.0,"tv1":0.0,"x":0.0,"y":0.0,},
+        {"th0":-0.020610688,"th1":0.0072519067,"tv0":0.0,"tv1":0.0,"x":0.103053436,"y":-0.16019121,},
+        {"th0":-0.0072519067,"th1":0.004198474,"tv0":0.0,"tv1":0.0,"x":0.13931297,"y":-0.20942701,},
+        {"th0":-0.004198474,"th1":0.017938932,"tv0":0.0,"tv1":0.0,"x":0.16030534,"y":-0.23105918,},
+        {"th0":-0.017938932,"th1":0.024809157,"tv0":0.0,"tv1":0.0,"x":0.25,"y":-0.1945217,},
+        {"th0":-0.024809157,"th1":0.12519084,"tv0":0.0,"tv1":0.0,"x":0.3740458,"y":0.0,},
+        {"th0":-0.1,"th1":0.1,"tv0":0.0,"tv1":0.0,"x":1.0,"y":0.0,},
+      ],"resourceType":"GMAnimCurveChannel","resourceVersion":"2.0","visible":true,},
+  ],
+  "function":1,
+  "name":"AnimationCurve1",
+  "parent":{
+    "name":"Example",
+    "path":"folders/Example.yy",
+  },
+  "resourceType":"GMAnimCurve",
+  "resourceVersion":"2.0",
+}

@@ -12,7 +12,7 @@ if (speedId == __id)
 		else
 		{
 			speedString = flipframe_get_speed(SCsprite)
-			obj_showcase_sprite.showcaseSprite.animation_speed()
+			obj_showcase_sprite.showcaseSprite.animation_speed(undefined)
 		}
     }
 }

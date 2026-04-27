@@ -16,12 +16,3 @@
   </a>
   (Open this in a new tab if needed)
 </p>
-
-<p align="center""><strong>Warning this is not final, subject to change</strong></p>
-
-Todo list
-<ul>
-  <li>Fix Delta time compatibility</li>
-  <li>Allow Speed curves</li>
-  <li>Allow Sequence compatibility (Unlikely)</li>
-</ul>

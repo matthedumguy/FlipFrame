@@ -1,6 +1,6 @@
 showcaseSprite = flipframe_flick(Example.SCsprite)
 showcaseSprite.animate(Example.SCsprite, Example.SCanimtype)
-
+showcaseSprite.deltatime_toggle(true)
 
 stringifyAnimtype = function(_animType)
 {
@@ -11,6 +11,9 @@ stringifyAnimtype = function(_animType)
 		
 		case FLIPFRAME_ANIMTYPE.ONESHOT:
 		return "Oneshot"
+		
+		case FLIPFRAME_ANIMTYPE.ONESHOTB:
+		return "OneshotB"
 		
 		case FLIPFRAME_ANIMTYPE.FRAMELOOPED:
 		return "Frame Looping"

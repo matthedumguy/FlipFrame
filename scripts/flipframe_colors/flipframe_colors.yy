@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"flipframe_color_wave",
+  "%Name":"flipframe_colors",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"flipframe_color_wave",
+  "name":"flipframe_colors",
   "parent":{
-    "name":"Colour",
-    "path":"folders/FlipFrame/Colour.yy",
+    "name":"Misc",
+    "path":"folders/FlipFrame/Misc.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

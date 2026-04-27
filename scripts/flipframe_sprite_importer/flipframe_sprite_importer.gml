@@ -17,14 +17,17 @@ function flipframe_sprite_importer(fname)
 			_fformat = __fformat
 		}
 	}
+	if (!file_exists(_fname))
+		flipframe_throw("File name ''", _fname, "'' does not exist")
+		
+	if (!file_exists(_inifname))
+		flipframe_throw("FFilm file ''", _inifname, "'' does not exist")
 	
-	if (file_exists(_inifname))
-	{
-		ini_open(_inifname)
-		_xoff = ini_read_real("FFrameInfo", "xOrigin", 0)
-		_yoff = ini_read_real("FFrameInfo", "yOrigin", 0)
-		_numb = ini_read_real("FFrameInfo", "frameCount", 1)
-	}
+	ini_open(_inifname)
+	_xoff = ini_read_real("FFrameInfo", "xOrigin", 0)
+	_yoff = ini_read_real("FFrameInfo", "yOrigin", 0)
+	_numb = ini_read_real("FFrameInfo", "frameCount", 1)
+	ini_close()
 	
 	return sprite_add_ext(_fname, _numb, _xoff, _yoff, false)
 }

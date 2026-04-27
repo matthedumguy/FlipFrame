@@ -1,7 +1,12 @@
-var arg2 = (Example.SCanimtype == FLIPFRAME_ANIMTYPE.TRANSITIONTO) ? Example.SCtoloop : 2
 var _callbackTest = function()
 {
-	flipframe_log("Waku Waku Sonic Patrol Car")	
+	flipframe_log("Waku Waku Sonic Patrol Car")	;
 }
-showcaseSprite.animate(Example.SCsprite, Example.SCanimtype, arg2, 5)
-showcaseSprite.on_finished(_callbackTest)
+showcaseSprite.animate(Example.SCsprite, Example.SCanimtype);
+
+if (Example.SCanimtype == FLIPFRAME_ANIMTYPE.TRANSITIONTO)
+	showcaseSprite.transition_into(Example.SCtoloop);
+else if (Example.SCanimtype == FLIPFRAME_ANIMTYPE.FRAMELOOPED)
+	showcaseSprite.frame_looping(2, 5);
+	
+showcaseSprite.on_finished(_callbackTest);

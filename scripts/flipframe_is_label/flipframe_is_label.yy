@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"flipframe_INIT",
+  "%Name":"flipframe_is_label",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"flipframe_INIT",
+  "name":"flipframe_is_label",
   "parent":{
-    "name":"FlipFrame",
-    "path":"folders/FlipFrame.yy",
+    "name":"Misc",
+    "path":"folders/FlipFrame/Misc.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
