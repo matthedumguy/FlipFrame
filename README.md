@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://pastebin.com/raw/b29d0FQd">
+  <a href="https://gist.github.com/matthedumguy/0705fec1d4200a6ed6cf0318f6cee3c6">
     Check out the documentation
   </a>
   (Open this in a new tab if needed)
