@@ -1,6 +1,7 @@
 var c_outline = merge_colour(c_wave, c_gray, 0.55)
-
-var _ff = flipframe(showcaseSprite, x, y, image_xscale, image_yscale, 0, c_white, 1)
+var __y = Wave(y - 100, y + 100, 2, 1)
+var __x = Wave(x - 500, x + 500, 4, 1)
+var _ff = flipframe(showcaseSprite, __x, __y, image_xscale, image_yscale, 0, c_white, 1)
 _ff.outline(c_outline, 10)
 draw_set_font(fnt_main)
 draw_set_halign(fa_center)

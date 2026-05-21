@@ -1,7 +1,7 @@
 showcaseSprite = flipframe_flick(Example.SCsprite)
 showcaseSprite.animate(Example.SCsprite, Example.SCanimtype)
 showcaseSprite.deltatime_toggle(true)
-
+speedz = 10
 stringifyAnimtype = function(_animType)
 {
 	switch (_animType)

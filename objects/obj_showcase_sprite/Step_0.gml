@@ -10,3 +10,5 @@ else if (Example.SCanimtype == FLIPFRAME_ANIMTYPE.FRAMELOOPED)
 	showcaseSprite.frame_looping(2, 5);
 	
 showcaseSprite.on_finished(_callbackTest);
+if (speedz != 0.1)
+speedz -= 0.01
