@@ -2,7 +2,6 @@
   "$GMNotes":"v1",
   "%Name":"FlipFrame Documentation",
   "name":"FlipFrame Documentation",
-  "openedOnFirstLoad":true,
   "parent":{
     "name":"Documentation",
     "path":"folders/Documentation.yy",
